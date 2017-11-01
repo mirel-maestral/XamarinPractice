@@ -8,8 +8,29 @@
         <ResourceDictionary>
             <converters:DoubleToIntConverter x:Key="doubleToIntConverter" />
             <converters:SelectedItemEventArgsToSelectedItem x:Key="selectedItemEventArgsToSelectedItem" />
-            
+            <Style x:Key="BigRedLabel"
+                TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="Red" />
+            </Style>
+            <Style x:Key="BigBlueLabel"
+                TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="Blue" />
+            </Style>
+             <Style x:Key="LittleGreenLabel"
+                TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="Green" />
+            </Style>
         </ResourceDictionary>
+
     </ContentPage.Resources>
     <StackLayout Padding="20"> 
         <ListView  ItemsSource="{Binding People}" 
@@ -18,7 +39,7 @@
                 <behaviors:EventToCommandBehavior 
                     EventName="ItemSeleted"
                     Command="{Binding ItemSelectedCommand}"
-                    Converters="{StaticResource selectedItemEventArgsToSelectedItem"/>
+                    Converters="{StaticResource selectedItemEventArgsToSelectedItem}"/>
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -28,20 +49,26 @@
                         TextColor="Black"
                         DetailColor="Gray" />-->
 
-                    <!--<ViewCell>
+                   <ViewCell>
                         <ContentView>
                             <StackLayout Padding="20">
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding FirstName}" FontSize="20" FontAttributes="Bold" />
-                                    <Label Text="{Binding LastName}" FontSize="20" FontAttributes="Bold" />
+                                    <Label Text="{Binding FirstName}"
+                                            Style="{StaticResource BigRedLabel}"
+                                            FontSize="20" 
+                                            FontAttributes="Bold" />
+                                    <Label Text="{Binding LastName}" 
+                                            Stle="{StaticResource BigBlueLabel}"
+                                            FontSize="20" 
+                                            FontAttributes="Bold" />
                                 </StackLayout>
                                 <Label Text="{Binding Address}" FontSize="15" FontAttributes="None" />
                             </StackLayout>
                         </ContentView>
-                    </ViewCell>-->
+                    </ViewCell>
 
-                    <TextCell Text="{Binding FirstName}"
-                                Detail="{Binding Age, Converter={StaticResource doubleToIntConverter}" />
+                    <!--<TextCell Text="{Binding FirstName}"
+                                Detail="{Binding Age, Converter={StaticResource doubleToIntConverter}" />-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
