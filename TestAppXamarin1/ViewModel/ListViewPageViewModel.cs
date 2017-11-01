@@ -1,12 +1,43 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using TestAppXamarin1.Models;
+using Xamarin.Forms;
 
 namespace TestAppXamarin1.ViewModel
 {
-    public class ListViewPageViewModel
+    public class ListViewPageViewModel: INotifyPropertyChanged
     {
         public ObservableCollection<Person> People { get; set; } = new ObservableCollection<Person>();
+        public ICommand ItemSelectedCommand { get; private set; }
+        private string selectedItemText;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string SelecedItemText
+        {
+            get
+            {
+                return selectedItemText;
+
+            }
+            set
+            {
+                selectedItemText = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        protected void RaisePropertyChanged([CallerMemberName]string caller = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
+            }
+        }
+
         public ListViewPageViewModel()
         {
             Random rnd = new Random();
@@ -21,6 +52,13 @@ namespace TestAppXamarin1.ViewModel
                     Age = (decimal)(35 + rnd.NextDouble())
                 });
             }
+
+            ItemSelectedCommand = new Command<Person>(HandleItemSelected);
+        }
+
+        private void HandleItemSelected(Person person)
+        {
+            this.SelecedItemText = $"{person.FirstName} {person.LastName}";
         }
     }
 }

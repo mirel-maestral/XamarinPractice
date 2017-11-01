@@ -25,5 +25,10 @@ namespace TestAppXamarin1
         {
             this.Navigation.PushAsync(new ListViewPage());
         }
+
+        void behaviourTest_Clicked(object sender, System.EventArgs e)
+        {
+            this.Navigation.PushAsync(new BehaviourView() );
+        }
     }
 }

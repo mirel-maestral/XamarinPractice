@@ -14,16 +14,16 @@ namespace TestAppXamarin1.Views
             BindingContext = new ListViewPageViewModel();
         }
 
-        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
-        {
-            if(e.SelectedItem == null)
-            {
-                //Handle deselect
-                return;
-            }
+        //void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        //{
+        //    if(e.SelectedItem == null)
+        //    {
+        //        //Handle deselect
+        //        return;
+        //    }
 
-            var person = e.SelectedItem as Person;
-            DisplayAlert("Selected", $"{person.FirstName} {person.LastName}", "OK");
-        }
+        //    var person = e.SelectedItem as Person;
+        //    DisplayAlert("Selected", $"{person.FirstName} {person.LastName}", "OK");
+        //}
     }
 }
