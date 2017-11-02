@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using TestAppXamarin1.Models;
 using TestAppXamarin1.ViewModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace TestAppXamarin1.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListViewPage : ContentPage
     {
         public ListViewPage()

@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="TestAppXamarin1.Views.ListViewPage"
-    xmlns:converters="clr-namespace:TestAppXamarin1.Converters"
-    xmlns:behaviors="crl-namespace:TestAppXamarin1.Behaviors">
+    xmlns:converters="clr-namespace:TestAppXamarin1.Converters">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:DoubleToIntConverter x:Key="doubleToIntConverter" />
             <converters:SelectedItemEventArgsToSelectedItem x:Key="selectedItemEventArgsToSelectedItem" />
+         
             <Style x:Key="BigRedLabel"
                 TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center" />
@@ -35,12 +35,12 @@
     <StackLayout Padding="20"> 
         <ListView  ItemsSource="{Binding People}" 
                     HasUnevenRows="true">
-            <ListView.Behaviors>
-                <behaviors:EventToCommandBehavior 
+            <!--<ListView.Behaviors>
+                <behaviors:eventToCommandBehavior
                     EventName="ItemSeleted"
                     Command="{Binding ItemSelectedCommand}"
-                    Converters="{StaticResource selectedItemEventArgsToSelectedItem}"/>
-            </ListView.Behaviors>
+                    Converters="{StaticResource selectedItemEventArgsToSelectedItem}" />
+            </ListView.Behaviors>-->
             <ListView.ItemTemplate>
                 <DataTemplate>
                    <!--<ImageCell Text="{Binding Name}"
@@ -58,7 +58,7 @@
                                             FontSize="20" 
                                             FontAttributes="Bold" />
                                     <Label Text="{Binding LastName}" 
-                                            Stle="{StaticResource BigBlueLabel}"
+                                            Style="{StaticResource BigBlueLabel}"
                                             FontSize="20" 
                                             FontAttributes="Bold" />
                                 </StackLayout>

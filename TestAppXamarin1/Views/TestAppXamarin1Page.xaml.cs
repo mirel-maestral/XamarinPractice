@@ -1,9 +1,11 @@
 ﻿using TestAppXamarin1.ViewModel;
 using TestAppXamarin1.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace TestAppXamarin1
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TestAppXamarin1Page : ContentPage
     {
         public TestAppXamarin1Page()
