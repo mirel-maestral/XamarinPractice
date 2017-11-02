@@ -10,6 +10,7 @@
             <Button Text="Goto slider" Clicked="gotoSlider_Clicked"  />
             <Button Text="Goto listview" Clicked="gotoListView_Clicked" BackgroundColor="Lime" TextColor="Blue" />
             <Button Text="Test Baviours" Clicked="behaviourTest_Clicked"  />
+            <Button Text="Data Entry" Clicked="dataEntry_Clicked"  BackgroundColor="Yellow" TextColor="Blue" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -27,5 +27,10 @@ namespace TestAppXamarin1.Views
         //    var person = e.SelectedItem as Person;
         //    DisplayAlert("Selected", $"{person.FirstName} {person.LastName}", "OK");
         //}
+
+        void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new EntryPage());
+        }
     }
 }

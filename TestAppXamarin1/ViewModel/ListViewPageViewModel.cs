@@ -40,22 +40,40 @@ namespace TestAppXamarin1.ViewModel
 
         public ListViewPageViewModel()
         {
-            Random rnd = new Random();
-            for (int i = 1; i < 6; i++)
-            {
-                this.People.Add(new Person()
-                {
-                    FirstName = String.Format("{0} {1}", "Mirel", i.ToString()),
-                    //LastName = String.Format("{0} {1}", "Spahic", i.ToString()),
-                    //Address = $"{i.ToString()} address",
-                    //ImageSource = $"man{i.ToString()}.jpeg"
-                    Age = (decimal)(35 + rnd.NextDouble())
-                });
-            }
+            //Random rnd = new Random();
+            //for (int i = 1; i < 6; i++)
+            //{
+            //    this.People.Add(new Person()
+            //    {
+            //        FirstName = String.Format("{0} {1}", "Mirel", i.ToString()),
+            //        //LastName = String.Format("{0} {1}", "Spahic", i.ToString()),
+            //        //Address = $"{i.ToString()} address",
+            //        //ImageSource = $"man{i.ToString()}.jpeg"
+            //        Age = (decimal)(35 + rnd.NextDouble())
+            //    });
+            //}
+
+            //foreach(var person in Person.People)
+            //{
+            //    this.People.Add(new Person()
+            //    {
+            //        LastName = person.LastName,
+            //        FirstName = person.FirstName,
+            //        PhoneNumber = person.PhoneNumber
+            //    });
+            //}
+
+            PopulatePeople();
 
             ItemSelectedCommand = new Command<Person>(HandleItemSelected);
         }
-
+        private async void PopulatePeople(){
+            var people = await App.Database.GetPeopleAsync();
+            foreach(var p in people)
+            {
+                People.Add(p);
+            }
+        }
         private void HandleItemSelected(Person person)
         {
             this.SelecedItemText = $"{person.FirstName} {person.LastName}";

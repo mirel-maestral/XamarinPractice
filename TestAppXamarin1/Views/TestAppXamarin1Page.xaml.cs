@@ -32,5 +32,10 @@ namespace TestAppXamarin1
         {
             this.Navigation.PushAsync(new BehaviourView() );
         }
+
+        void dataEntry_Clicked(object sender, System.EventArgs e)
+        {
+            this.Navigation.PushAsync(new EntryPage());
+        }
     }
 }

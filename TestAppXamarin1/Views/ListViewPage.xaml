@@ -51,6 +51,9 @@
 
                    <ViewCell>
                         <ContentView>
+                            <StackLayout Padding="20" Orientation="Vertical">
+                                <Button Text="Go to Data entry" Clicked="Handle_Clicked" />
+                            </StackLayout>
                             <StackLayout Padding="20">
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding FirstName}"
@@ -63,6 +66,9 @@
                                             FontAttributes="Bold" />
                                 </StackLayout>
                                 <Label Text="{Binding Address}" FontSize="15" FontAttributes="None" />
+                                 <Label Text="{Binding PhoneNumber}" FontSize="15" FontAttributes="None" />
+                                
+                                
                             </StackLayout>
                         </ContentView>
                     </ViewCell>
