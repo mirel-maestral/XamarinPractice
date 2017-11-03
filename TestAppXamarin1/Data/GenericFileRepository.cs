@@ -54,7 +54,7 @@ namespace TestAppXamarin1.Data
             DependencyService.Get<IFile>().SaveText(filename, serializedJson);
         }
 
-        public Save(IEnumerable<T> entities)
+        public void Save(IEnumerable<T> entities)
         {
             StoreEntities(entities);
         }
@@ -62,7 +62,7 @@ namespace TestAppXamarin1.Data
         public void Delete(int id)
         {
             var items = LoadAllEntities().ToList();
-            var item = items.FirstOrDefault(i => i.ID == entity.ID);
+            var item = items.FirstOrDefault(i => i.ID == id);
             if (item != null)
             {
                 items.Remove(item);

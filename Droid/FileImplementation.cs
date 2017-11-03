@@ -18,6 +18,7 @@ namespace TestAppXamarin1.Droid
             var documentPath = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var filePath = Path.Combine(documentPath, filename);
             File.Delete(filePath);
+            return "";
         }
 
         public bool FileExists(string filename)
